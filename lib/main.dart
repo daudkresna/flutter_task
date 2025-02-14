@@ -24,14 +24,8 @@ class MyApp extends StatelessWidget {
           ),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
-        home: Scaffold(
-          appBar: AppBar(title: Text('Native Bloc Task')),
-          body: WelcomeScreen(),
-        ),
+        title: 'Flutter Native Bloc Task',
+        home: Scaffold(body: WelcomeScreen()),
       ),
     );
   }

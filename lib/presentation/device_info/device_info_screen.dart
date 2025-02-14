@@ -25,6 +25,7 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
   }
 
   Future<void> _getBatteryLevel() async {
+    await Future.delayed(Duration(seconds: 2));
     try {
       final int newBatteryLevel = await platform.invokeMethod(
         "getBatteryPercentages",
@@ -34,6 +35,7 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
       });
     } on PlatformException catch (e) {
       setState(() {
+        print('Failed to get battery level: ${e.message}');
         _batteryLevel = -1;
       });
     } finally {
@@ -44,6 +46,7 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
   }
 
   Future<void> _getDeviceInfo() async {
+    await Future.delayed(Duration(seconds: 2));
     try {
       final deviceInfo = await platform.invokeMethod('getDeviceInfo');
       setState(() {
